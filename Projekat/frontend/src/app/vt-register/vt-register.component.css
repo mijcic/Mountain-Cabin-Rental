@@ -1,0 +1,124 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+* {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.white-box {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 20px 40px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  max-width: 900px;
+  width: 100%;
+  margin: auto;
+}
+
+.white-box h1 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.white-box label {
+  font-size: 18px;
+  color: #333;
+}
+
+.white-box .mb-2 {
+  margin-bottom: 10px !important; 
+}
+
+.white-box input, .white-box select {
+  width: 100%;
+  padding: 6px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.white-box input:focus {
+  border: 2px solid #011e4f;
+  outline: none;
+}
+
+.white-box button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #011e4f;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.white-box button:hover {
+  background-color: #9ebcd8;
+  transform: scale(1.05);
+}
+
+.white-box a {
+  color: #011e4f;
+  text-decoration: none;
+}
+
+.white-box a:hover {
+  text-decoration: underline;
+}
+
+.radio-big {
+  transform: scale(1.2);      
+  position: relative;
+  top: 3px;                
+}
+
+.form-columns {
+  display: flex;
+  gap: 40px;
+}
+
+.column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.separator {
+  width: 1px;
+  background-color: #ccc;
+  align-self: stretch; 
+}
+
+.error-message {
+  color: orange;
+  font-size: 15px !important;
+  display: inline-flex; 
+  align-items: flex-start; 
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.error-message img {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 6px;
+}
+
+.icon {
+  width: 16px;          
+  height: 16px;         
+  vertical-align: middle;
+  margin-right: 2px;  
+}

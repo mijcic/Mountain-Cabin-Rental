@@ -1,0 +1,290 @@
+@import "bootstrap/dist/css/bootstrap.min.css"; 
+
+* { 
+    font-family: 'Lucida Sans', sans-serif; 
+    box-sizing: border-box; 
+} 
+
+html, body { 
+    margin: 0; 
+    padding: 0; 
+    min-height: 100vh; 
+    width: 100%; 
+    overflow-x: hidden; 
+} 
+
+.white-box { 
+    width: 70%; 
+    max-width: 800px; 
+    background-color: rgba(255,255,255,0.95); 
+    padding: 25px 30px; 
+    border-radius: 12px; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 15px; 
+    align-items: center; 
+    overflow-y: auto; 
+    scroll-behavior: smooth; 
+    text-align: left;  
+} 
+
+.info-box {
+    width: 500px; 
+    max-height: none;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.95);
+    margin-top: 20px;
+}
+
+.slideshow {
+    width: 80%;      
+    height: 250px;   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.slideshow img {
+    width: 100%;      
+    height: 100%;     
+    object-fit: cover; 
+}
+
+.rezervacija-box { 
+    width: 70%; 
+    max-width: 650px; 
+    background-color: rgba(255,255,255,0.95); 
+    padding: 25px 30px; 
+    border-radius: 12px; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 15px; 
+    align-items: center;  
+    text-align: left; 
+} 
+
+.rezervacija-step { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 8px; 
+} 
+
+.rezervacija-step h3 {
+    font-size: 1.45rem;    
+    margin: 0 0 5px 0;    
+}
+
+.form-group { 
+    margin-bottom: 12px; 
+    display: flex; 
+    flex-direction: column; 
+    width: 100%;
+} 
+
+.form-group label { 
+    font-weight: bold; 
+} 
+
+.form-group input, .form-group textarea { 
+    width: 100%; 
+    max-width: 300px; 
+    padding: 6px 10px; 
+    border-radius: 5px; 
+    border: 1px solid #ccc; 
+} 
+
+.button-group { 
+    display: flex; 
+    gap: 10px; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    margin-top: 10px; 
+} 
+
+.button-group button { 
+    padding: 6px 14px; 
+    background-color: #011e4f; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: 0.2s; 
+} 
+
+.button-group button:hover { 
+    background-color: #9ebcd8; 
+    transform: scale(1.05); 
+} 
+
+.error-message {
+  color: orange;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.error-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.white-box + .white-box { 
+    margin-top: 20px; 
+} 
+
+.footer p { 
+    font-weight: bold; 
+    color: #011e4f; 
+    margin: 0; 
+} 
+
+.header .nav-link { 
+    color: #011e4f; 
+    font-weight: bold; 
+    margin: 0 10px; 
+} 
+
+.header .nav-link.active { 
+    color: orange; 
+} 
+
+header a:hover { 
+    text-decoration: underline; 
+}
+
+.rezervacija-box h2 {
+    margin-bottom: 0px; 
+}
+
+@media (max-width: 992px) {
+    .white-box { width: 80%; padding: 20px; }
+    .rezervacija-box { width: 80%; padding: 20px; }
+    .form-group input, .form-group textarea { max-width: 100%; }
+}
+
+@media (max-width: 576px) {
+    .white-box { width: 95%; padding: 15px; }
+    .button-group { flex-direction: column; align-items: stretch; }
+}
+
+.map-wrapper {
+  width: 100%;
+  max-width: 800px;
+  margin-top: 15px;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+#map {
+  width: 100%;
+  height: 400px; 
+  min-height: 300px;
+  border-radius: 8px;
+}
+
+.map-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #011e4f;
+  text-align: center;
+}
+
+.info-box {
+    flex: 1 1 450px; 
+    max-width: 500px;
+}
+
+.recenzije-box {
+    flex: 1 1 350px; 
+    max-width: 650px;
+    max-height: 400px;
+    margin-top: 20px;
+}
+
+.table-scroll {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.rezervacija-box table {
+    width: 100%;       
+    table-layout: auto; 
+}
+
+.table-scroll {
+    width: 100%;       
+    overflow-x: auto;  
+}
+
+.recenzija-prikaz {
+  text-align: center;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.recenzija-komentar {
+  font-style: italic;
+  font-size: 1rem;
+  margin-bottom: 3px;
+  color: #333;
+}
+
+.ocena-zvezdica {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;  
+}
+
+.ocena {
+  font-weight: bold;
+  font-size: 1.2rem; 
+  color: #000;
+}
+
+.zvezdica {
+  font-size: 1.8rem; 
+  color: gold;     
+}
+
+table td {
+    vertical-align: middle;
+}
+
+.top-section {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap; 
+    width: 100%;
+    margin-top: 20px;
+}
+
+.left-column {
+    flex: 1 1 450px;
+    max-width: 500px;
+}
+
+.right-column {
+    flex: 1 1 500px;  
+    max-width: 750px; 
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.right-column .white-box {
+    width: 100%;  
+}
+
+    

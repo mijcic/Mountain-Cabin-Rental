@@ -1,0 +1,499 @@
+
+
+<div class="admin-page d-flex flex-column min-vh-100" style="background-image: url('assets/main-background.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+  <header class="header d-flex justify-content-center align-items-center py-3 bg-light shadow-sm w-100">
+    <nav class="nav flex-wrap justify-content-center">
+      <a class="nav-link" [class.active]="activeSection == 'svi korisnici'" (click)="setActiveSection('svi korisnici')">Svi korisnici</a>
+      <a class="nav-link" [class.active]="activeSection == 'zahtevi'" (click)="setActiveSection('zahtevi')">Zahtevi</a>
+      <a class="nav-link" [class.active]="activeSection == 'vikendice'" (click)="setActiveSection('vikendice')">Vikendice</a>
+      <a class="nav-link" href="/changePassword">Promeni lozinku</a>
+      <a class="nav-link" (click)="odjaviSe()">Odjavi se</a>
+    </nav>
+  </header>
+
+  <main class="flex-grow-1 d-flex flex-column align-items-center mt-3 mb-3 w-100">
+    @if (activeSection == "svi korisnici") {
+      <div class="white-box mb-4">
+        <div class="table-scroll">
+          @if (izmenaVlasnika == false) {
+            <h2 class="center-title">Svi vlasnici</h2>
+            @if (messageInfo1 != "") { 
+              <div class="error-message">
+                <img src="assets/icons/warning.png" alt="Warning" class="error-icon">
+                {{messageInfo1}}
+              </div> 
+            }
+            <table class="table table-striped table-bordered mb-0">
+              <thead class="table-dark">
+                <tr>
+                  <th>Korisnicko ime</th>
+                  <th>Tip</th>
+                  <th>Ime</th>
+                  <th>Prezime</th>
+                  <th>Pol</th>
+                  <th>Adresa</th>
+                  <th>Kontakt telefon</th>
+                  <th>Mejl</th>
+                  <th>Profilna slika</th>
+                  <th>Broj kreditne kartice</th>
+                  <th colspan="3">Akcije</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (v of sviVlasnici; track v.korisnicko_ime){
+                  <tr>
+                    <td>{{v.korisnicko_ime}}</td>
+                    <td>{{v.tip}}</td>
+                    <td>{{v.ime}}</td>
+                    <td>{{v.prezime}}</td>
+                    <td>{{v.pol}}</td>
+                    <td>{{v.adresa}}</td>
+                    <td>{{v.kontakt_telefon}}</td>
+                    <td>{{v.mejl}}</td>
+                    <td>
+                      <img [src]="'http://localhost:4000/uploads/' + v.profilna_slika" 
+                          alt="Profilna slika" 
+                          class="profile-img-small"/>
+                    </td>
+                    <td>{{v.broj_kreditne_kartice}}</td>
+                    <td class="akcije-cell">
+                      <button (click)="izmenaVlasnikaF(v)">Izmeni korisnika</button>
+                      <button (click)="obrisiKorisnika(v)">Obrisi korisnika</button>
+                      <button (click)="deaktivirajKorisnika(v)" [disabled]="v.status == 'neaktivan'">Deaktiviraj korisnika</button>
+                    </td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          }
+          @if (izmenaVlasnika == true) {
+            <h2 class="center-title">Izmeni vlasnika</h2>
+            <div class="white-box profil-box">
+              <div class="profile-section">
+
+                <div class="profile-left">
+                  <table class="profile-table">
+                    <tr>
+                      <td><strong>Slika:</strong></td>
+                      <td>
+                        <div class="profile-img-row">
+                          <img [src]="'http://localhost:4000/uploads/' + korisnikIzmena.profilna_slika" 
+                              alt="Profilna slika" class="profile-img">
+                          <input type="file" (change)="onFileSelected($event)" accept="image/png, image/jpeg">
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td><strong>Tip:</strong></td>
+                      <td>
+                        <div class="input-wrapper radios">
+                          <label><input type="radio" name="tip" value="vlasnik" [(ngModel)]="korisnikIzmena.tip"> Vlasnik</label>
+                          <label><input type="radio" name="tip" value="turista" [(ngModel)]="korisnikIzmena.tip"> Turista</label>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td><strong>Korisničko ime:</strong></td>
+                      <td>
+                        <div class="input-wrapper">
+                          <input type="text" [(ngModel)]="korisnikIzmena.korisnicko_ime" readonly>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td><strong>Lozinka:</strong></td>
+                      <td>
+                        <div class="input-wrapper">
+                          <input type="password" [(ngModel)]="korisnikIzmena.lozinka" readonly>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td><strong>Ime:</strong></td>
+                      <td>
+                        <div class="input-wrapper">
+                          <input type="text" [(ngModel)]="korisnikIzmena.ime">
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+
+                <div class="profile-right">
+                  <table class="profile-table">
+                    <tr>
+                      <td><strong>Prezime:</strong></td>
+                      <td>
+                        <div class="input-wrapper">
+                          <input type="text" [(ngModel)]="korisnikIzmena.prezime">
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td><strong>Pol:</strong></td>
+                      <td>
+                        <div class="input-wrapper radios">
+                          <label><input type="radio" name="pol" value="M" [(ngModel)]="korisnikIzmena.pol"> M</label>
+                          <label><input type="radio" name="pol" value="Z" [(ngModel)]="korisnikIzmena.pol"> Z</label>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td><strong>Adresa:</strong></td>
+                      <td>
+                        <div class="input-wrapper">
+                          <input type="text" [(ngModel)]="korisnikIzmena.adresa">
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td><strong>Kontakt telefon:</strong></td>
+                      <td>
+                        <div class="input-wrapper">
+                          <input type="text" [(ngModel)]="korisnikIzmena.kontakt_telefon">
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td><strong>Mejl:</strong></td>
+                      <td>
+                        <div class="input-wrapper">
+                          <input type="text" [(ngModel)]="korisnikIzmena.mejl" readonly>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td><strong>CCN:</strong></td>
+                      <td>
+                        <div class="ccn-wrapper">
+                          <input type="text" [(ngModel)]="korisnikIzmena.broj_kreditne_kartice" (input)="proveriKarticu()">
+                          <img [src]="putanjaSlike" alt="Tip kartice" width="40" height="25" 
+                              [style.visibility]="putanjaSlike ? 'visible' : 'hidden'">
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+
+                  <div class="buttons-wrapper">
+                    <button (click)="sacuvajIzmene()">Sačuvaj izmene</button>
+                    <button (click)="otkaziIzmeneVlasnika()">Otkaži izmene</button>
+                  </div>
+                  @if (messageIzmena != "") { 
+                    <div class="error-message">
+                      <img src="assets/icons/warning.png" alt="Warning" class="error-icon">
+                      {{messageIzmena}}
+                    </div> 
+                  }
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="white-box mb-4">
+        <div class="table-scroll">
+          @if (izmenaTuriste == false) {
+            <h2 class="center-title">Svi turisti</h2>
+            @if (messageInfo2 != "") { 
+              <div class="error-message">
+                <img src="assets/icons/warning.png" alt="Warning" class="error-icon">
+                {{messageInfo2}}
+              </div> 
+            }
+            <table class="table table-striped table-bordered mb-0">
+              <thead class="table-dark">
+                <tr>
+                  <th>Korisnicko ime</th>
+                  <th>Tip</th>
+                  <th>Ime</th>
+                  <th>Prezime</th>
+                  <th>Pol</th>
+                  <th>Adresa</th>
+                  <th>Kontakt telefon</th>
+                  <th>Mejl</th>
+                  <th>Profilna slika</th>
+                  <th>Broj kreditne kartice</th>
+                  <th colspan="2">Akcije</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (v of sviTuristi; track v.korisnicko_ime){
+                  <tr>
+                    <td>{{v.korisnicko_ime}}</td>
+                    <td>{{v.tip}}</td>
+                    <td>{{v.ime}}</td>
+                    <td>{{v.prezime}}</td>
+                    <td>{{v.pol}}</td>
+                    <td>{{v.adresa}}</td>
+                    <td>{{v.kontakt_telefon}}</td>
+                    <td>{{v.mejl}}</td>
+                    <td>
+                      <img [src]="'http://localhost:4000/uploads/' + v.profilna_slika" 
+                          alt="Profilna slika" 
+                          class="profile-img-small"/>
+                    </td>
+                    <td>{{v.broj_kreditne_kartice}}</td>
+                    <td class="akcije-cell">
+                      <button (click)="izmenaTuristeF(v)">Izmeni korisnika</button>
+                      <button (click)="obrisiKorisnika(v)">Obrisi korisnika</button>
+                      <button (click)="deaktivirajKorisnika(v)">Deaktiviraj korisnika</button>
+                    </td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          }
+          @if (izmenaTuriste == true) {
+            <h2 class="center-title">Izmeni turistu</h2>
+            <div class="white-box profil-box">
+              <div class="profile-section">
+
+                <div class="profile-left">
+                  <table class="profile-table">
+                    <tr>
+                      <td><strong>Slika:</strong></td>
+                      <td>
+                        <div class="profile-img-row">
+                          <img [src]="'http://localhost:4000/uploads/' + korisnikIzmena.profilna_slika" 
+                              alt="Profilna slika" class="profile-img">
+                          <input type="file" (change)="onFileSelected($event)" accept="image/png, image/jpeg">
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td><strong>Tip:</strong></td>
+                      <td>
+                        <div class="input-wrapper radios">
+                          <label><input type="radio" name="tip" value="vlasnik" [(ngModel)]="korisnikIzmena.tip"> Vlasnik</label>
+                          <label><input type="radio" name="tip" value="turista" [(ngModel)]="korisnikIzmena.tip"> Turista</label>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td><strong>Korisničko ime:</strong></td>
+                      <td>
+                        <div class="input-wrapper">
+                          <input type="text" [(ngModel)]="korisnikIzmena.korisnicko_ime" readonly>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td><strong>Lozinka:</strong></td>
+                      <td>
+                        <div class="input-wrapper">
+                          <input type="password" [(ngModel)]="korisnikIzmena.lozinka" readonly>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td><strong>Ime:</strong></td>
+                      <td>
+                        <div class="input-wrapper">
+                          <input type="text" [(ngModel)]="korisnikIzmena.ime">
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+
+                <div class="profile-right">
+                  <table class="profile-table">
+                    <tr>
+                      <td><strong>Prezime:</strong></td>
+                      <td>
+                        <div class="input-wrapper">
+                          <input type="text" [(ngModel)]="korisnikIzmena.prezime">
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td><strong>Pol:</strong></td>
+                      <td>
+                        <div class="input-wrapper radios">
+                          <label><input type="radio" name="pol" value="M" [(ngModel)]="korisnikIzmena.pol"> M</label>
+                          <label><input type="radio" name="pol" value="Z" [(ngModel)]="korisnikIzmena.pol"> Z</label>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td><strong>Adresa:</strong></td>
+                      <td>
+                        <div class="input-wrapper">
+                          <input type="text" [(ngModel)]="korisnikIzmena.adresa">
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td><strong>Kontakt telefon:</strong></td>
+                      <td>
+                        <div class="input-wrapper">
+                          <input type="text" [(ngModel)]="korisnikIzmena.kontakt_telefon">
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td><strong>Mejl:</strong></td>
+                      <td>
+                        <div class="input-wrapper">
+                          <input type="text" [(ngModel)]="korisnikIzmena.mejl" readonly>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td><strong>CCN:</strong></td>
+                      <td>
+                        <div class="ccn-wrapper">
+                          <input type="text" [(ngModel)]="korisnikIzmena.broj_kreditne_kartice" (input)="proveriKarticu()">
+                          <img [src]="putanjaSlike" alt="Tip kartice" width="40" height="25" 
+                              [style.visibility]="putanjaSlike ? 'visible' : 'hidden'">
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+
+                  <div class="buttons-wrapper">
+                    <button (click)="sacuvajIzmene()">Sačuvaj izmene</button>
+                    <button (click)="otkaziIzmeneTuriste()">Otkaži izmene</button>
+                  </div>
+                  @if (messageIzmena != "") { 
+                    <div class="error-message">
+                      <img src="assets/icons/warning.png" alt="Warning" class="error-icon">
+                      {{messageIzmena}}
+                    </div> 
+                  }
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    }
+    
+    @if (activeSection == "zahtevi") {
+      <div class="white-box mb-4">
+        <h2 class="center-title">Svi zahtevi</h2>
+        <div class="table-scroll">
+          <table class="table table-striped table-bordered mb-0">
+            <thead class="table-dark">
+              <tr>
+                <th>Korisnicko ime</th>
+                <th>Tip</th>
+                <th>Ime</th>
+                <th>Prezime</th>
+                <th>Pol</th>
+                <th>Adresa</th>
+                <th>Kontakt telefon</th>
+                <th>Mejl</th>
+                <th>Profilna slika</th>
+                <th>Broj kreditne kartice</th>
+                <th colspan="2">Akcije</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (v of sviZahtevi; track v.korisnicko_ime){
+                <tr>
+                  <td>{{v.korisnicko_ime}}</td>
+                  <td>{{v.tip}}</td>
+                  <td>{{v.ime}}</td>
+                  <td>{{v.prezime}}</td>
+                  <td>{{v.pol}}</td>
+                  <td>{{v.adresa}}</td>
+                  <td>{{v.kontakt_telefon}}</td>
+                  <td>{{v.mejl}}</td>
+                  <td>
+                    <img [src]="'http://localhost:4000/uploads/' + v.profilna_slika" 
+                        alt="Profilna slika" 
+                        class="profile-img-small"/>
+                  </td>
+                  <td>{{v.broj_kreditne_kartice}}</td>
+                  <td><button (click)="odobriZahtev(v)">Odobri zahtev</button></td>
+                  <td><button (click)="odbijZahtev(v)">Odbij zahtev</button></td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    }
+
+    @if (activeSection == "vikendice") { 
+      <div class="white-box mb-4">
+        <div class="table-scroll">
+          <h2 class="center-title">Sve vikendice</h2>
+            @if (messageBlokiranje != "") { 
+              <div class="error-message">
+                <img src="assets/icons/warning.png" alt="Warning" class="error-icon">
+                {{messageBlokiranje}}
+              </div> 
+            }
+            <table class="table table-striped table-bordered mb-0">
+              <thead class="table-dark">
+                <tr>
+                  <th>Naziv</th>
+                  <th>Mesto</th>
+                  <th>Usluge</th>
+                  <th>Cenovnik letnji</th>
+                  <th>Cenovnik zimski</th>
+                  <th>Telefon</th>
+                  <th>Koordinate</th>
+                  <th>Slike</th>
+                  <th>Akcije</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (v of vikendiceSaFlagom; track v.vikendica.id) {
+                  <tr [class.crveno]="v.losa == 1">
+                    <td>{{ v.vikendica.naziv }}</td>
+                    <td>{{ v.vikendica.mesto }}</td>
+                    <td>{{ v.vikendica.usluge }}</td>
+                    <td>{{ v.vikendica.cenovnik_letnji }}</td>
+                    <td>{{ v.vikendica.cenovnik_zimski }}</td>
+                    <td>{{ v.vikendica.kontakt_telefon }}</td>
+                    <td>{{ v.vikendica.koordinate }}</td>
+                    <td>
+                      <div class="vikendice-imgs">
+                        @for (slika of (v.vikendica.slike || []); track slika) {
+                          <img [src]="'http://localhost:4000/vikendice_uploads/' + slika" alt="Slika vikendice" class="vikendica-img" />
+                        }
+                      </div>
+                    </td>
+                    <td>
+                      @if (v.losa == 1) {
+                        <div class="akcije-container">
+                          <button [disabled]="v.vikendica.status === 'blokirana'" (click)="blokirajVikendicu(v.vikendica)">Blokiraj privremeno</button>
+                        </div>
+                      }
+                    </td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+        </div>
+      </div>
+    }
+  </main>
+
+  <footer class="bg-light py-3 text-center shadow-sm mt-auto w-100">
+    <p><strong>&copy; 2025 Planinska vikendica</strong></p>
+  </footer>
+</div>

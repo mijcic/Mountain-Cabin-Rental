@@ -1,0 +1,131 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+* {
+  font-family: 'Lucida Sans', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.header .nav-link {
+  color: #011e4f;
+  font-weight: bold;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.header .nav-link:hover {
+  text-decoration: underline;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;   
+  margin-bottom: 60px; 
+}
+
+.info-card {
+  max-width: 500px;
+  width: 80%;
+  text-align: center;
+  padding: 20px 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.info-table {
+  border-collapse: collapse;
+  width: auto;
+  margin: auto;
+}
+
+.info-table td {
+  border: 1px solid rgba(0,0,0,0.1);
+  padding: 8px 12px;
+}
+
+.info-table td:first-child {
+  width: 150px; 
+}
+.info-table td:last-child {
+  width: 120px; 
+}
+
+.btn-vikendice {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 5px;
+  background-color: #011e4f;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-vikendice:hover {
+  background-color: #9ebcd8;
+  transform: scale(1.05);
+}
+
+.btn-vikendice-secondary {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 5px;
+  background-color: #6c757d;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-vikendice-secondary:hover {
+  background-color: #a9a9a9;
+  transform: scale(1.05);
+}
+
+input.form-control.form-control-sm {
+  width: 120px; 
+}
+
+.card.mb-4 {
+  width: 60%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.table-scroll {
+  max-height: 300px;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.table-scroll table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.table-scroll th,
+.table-scroll td {
+  width: 50%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.info-table td:first-child {
+  width: 450px; 
+}
+.info-table td:last-child {
+  width: 100px; 
+}

@@ -1,0 +1,69 @@
+<div 
+  class="d-flex justify-content-center align-items-center vh-100" 
+  style="background-image: url('assets/main-background.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+  
+  <div class="white-box">
+    <h1 class="text-center mb-3">Register</h1>
+    <form>
+      <div class="form-columns">
+        <div class="column">
+          <div class="mb-2 text-center">
+            <label class="form-label d-block mb-1">Prijavljujem se kao:</label>
+            <div class="d-flex justify-content-center align-items-center gap-3">
+              <label class="d-flex align-items-center gap-2">
+                <input type="radio" name="tip" value="vlasnik" [(ngModel)]="korisnik.tip" class="radio-big"> Vlasnik
+              </label>
+              <label class="d-flex align-items-center gap-2">
+                <input type="radio" name="tip" value="turista" [(ngModel)]="korisnik.tip" class="radio-big"> Turista
+              </label>
+            </div>
+          </div>
+
+          <div class="mb-2"><label class="form-label">Korisničko ime</label><input type="text" class="form-control" name="korisnicko_ime" [(ngModel)]="korisnik.korisnicko_ime"></div>
+          <div class="mb-2"><label class="form-label">Lozinka</label><input type="password" class="form-control" name="lozinka" [(ngModel)]="korisnik.lozinka"></div>
+          <div class="mb-2"><label class="form-label">Ime</label><input type="text" class="form-control" name="ime" [(ngModel)]="korisnik.ime"></div>
+          <div class="mb-2"><label class="form-label">Prezime</label><input type="text" class="form-control" name="prezime" [(ngModel)]="korisnik.prezime"></div>
+          <div class="mb-2"><label class="form-label">Adresa</label><input type="text" class="form-control" name="adresa" [(ngModel)]="korisnik.adresa"></div>
+        </div>
+
+        <div class="separator"></div>
+
+        <div class="column">
+          <div class="mb-2 text-center">
+            <label class="form-label d-block mb-1">Pol:</label>
+            <div class="d-flex justify-content-center align-items-center gap-3">
+              <label class="d-flex align-items-center gap-2">
+                <input type="radio" name="pol" value="M" [(ngModel)]="korisnik.pol" class="radio-big"> M
+              </label>
+              <label class="d-flex align-items-center gap-2">
+                <input type="radio" name="pol" value="Z" [(ngModel)]="korisnik.pol" class="radio-big"> Z
+              </label>
+            </div>
+          </div>
+
+          <div class="mb-2"><label class="form-label">Kontakt telefon</label><input type="text" class="form-control" name="kontakt_telefon" [(ngModel)]="korisnik.kontakt_telefon"></div>
+          <div class="mb-2"><label class="form-label">Mejl</label><input type="text" class="form-control" name="mejl" [(ngModel)]="korisnik.mejl"></div>
+          <div class="mb-2"><label class="form-label">Profilna slika</label><input type="file" class="form-control" (change)="onFileSelected($event)" accept="image/png, image/jpeg"></div>
+          <div class="mb-2">
+            <label class="form-label">CCN</label>
+            <input type="text" class="form-control mb-1" name="broj_kreditne_kartice" [(ngModel)]="korisnik.broj_kreditne_kartice" (input)="proveriKarticu()">
+            <img [src]="putanjaSlike" alt="Tip kartice" width="40" height="25" [style.visibility]="putanjaSlike ? 'visible' : 'hidden'">
+          </div>
+        </div>
+      </div>
+
+      <div class="d-grid mb-2 mt-3">
+        <button class="btn btn-primary" (click)="register()">Register</button>
+      </div>
+      <div class="text-center mb-2">
+        <a [routerLink]="'/login'">Login</a>
+      </div>
+      @if (message != "") {
+        <div class="error-message mt-2">
+            <img src="assets/icons/warning.png" width="18" height="18"> 
+            {{message}}
+        </div>
+      }
+    </form>
+  </div>
+</div>

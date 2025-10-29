@@ -1,0 +1,133 @@
+<body style="background-image: url('assets/main-background.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; 
+min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: flex-start;margin: 0;">
+    <header class="header d-flex justify-content-center align-items-center py-3 bg-light shadow-sm w-100">
+        <nav class="nav flex-wrap justify-content-center">
+            <a class="nav-link" href="/changePassword">Promeni lozinku</a>
+            <a class="nav-link" (click)="odjaviSe()">Odjavi se</a>
+        </nav>
+    </header>
+
+    <div class="top-section">
+        <div class="left-column">
+            <div class="white-box info-box">
+                <h2>Informacije</h2>
+                <div class="vikendica-info">
+                    <p><strong>Naziv:</strong> {{vikendica.naziv}}</p>
+                    <p><strong>Mesto:</strong> {{vikendica.mesto}}</p>
+                    <p><strong>Usluge:</strong> {{vikendica.usluge}}</p>
+                    <p><strong>Cenovnik letnji:</strong> {{vikendica.cenovnik_letnji}} €</p>
+                    <p><strong>Cenovnik zimski:</strong> {{vikendica.cenovnik_zimski}} €</p>
+                    <p><strong>Kontakt telefon:</strong> {{vikendica.kontakt_telefon}}</p>
+                </div>
+
+                <div class="slideshow">
+                    <img [src]="'http://localhost:4000/vikendice_uploads/' + trenutnaSlika"
+                        alt="Slika vikendice">
+                </div>
+
+                <div class="white-box map-wrapper">
+                    <h3 class="map-title">Lokacija</h3>
+                    <div id="map"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-column">
+            <div class="white-box recenzije-box">
+                <h2>Recenzije</h2>
+                <div class="table-scroll">
+                    <table class="table table-striped table-bordered mb-0">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Korisnik</th>
+                                <th>Komentar i ocena</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @for (v of sveRecenzije; track v){
+                            <tr>
+                                <td><strong>{{ v.korisnik?.ime }} {{ v.korisnik?.prezime }}</strong></td>
+                                <td>
+                                    <div class="recenzija-prikaz">
+                                        <p class="recenzija-komentar">{{ v.komentar }}</p>
+
+                                        <div class="ocena-zvezdica">
+                                            <span class="ocena">{{ v.ocena }}</span>
+                                            <span class="zvezdica">★</span>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="white-box rezervacija-box">
+                <h2>Iznajmljivanje vikendice</h2>
+
+                @if (step == 1) {
+                    <div class="rezervacija-step">
+                        <h3>Unos podataka</h3>
+                        <div class="form-group">
+                            <label>Datum početka:</label>
+                            <input type="datetime-local" [(ngModel)]="rezervacija.datum_pocetka" [min]="today">
+                        </div>
+                        <div class="form-group">
+                            <label>Datum kraja:</label>
+                            <input type="datetime-local" [(ngModel)]="rezervacija.datum_kraja" [min]="today">
+                        </div>
+                        <div class="form-group">
+                            <label>Broj odraslih:</label>
+                            <input type="number" [(ngModel)]="rezervacija.odrasli_broj">
+                        </div>
+                        <div class="form-group">
+                            <label>Broj dece:</label>
+                            <input type="number" [(ngModel)]="rezervacija.deca_broj">
+                        </div>
+                        <div class="button-group">
+                            <button (click)="nextStep()">Next step</button>
+                        </div>
+                    </div>
+                }
+
+                @if (step == 2) {
+                    <div class="rezervacija-step">
+                        <h3>Potvrda i plaćanje</h3>
+                        <p><strong>Naziv vikendice:</strong> {{vikendica.naziv}}</p>
+                        <p><strong>Check-in:</strong> {{ formatDate(rezervacija.datum_pocetka) }}</p>
+                        <p><strong>Check-out:</strong> {{ formatDate(rezervacija.datum_kraja) }}</p>
+                        <p><strong>Odrasli:</strong> {{rezervacija.odrasli_broj}}</p>
+                        <p><strong>Deca:</strong> {{rezervacija.deca_broj}}</p>
+                        <p><strong>Cena:</strong> {{rezervacija.cena}}</p>
+                        <div class="form-group">
+                            <label>Broj kartice:</label>
+                            <input type="text" [(ngModel)]="rezervacija.broj_kreditne_kartice">
+                        </div>
+                        <div class="form-group">
+                            <label>Dodatni zahtevi:</label>
+                            <textarea [(ngModel)]="rezervacija.opis" maxlength="500" rows="6" cols="10"></textarea>
+                        </div>
+                        <div class="button-group">
+                            <button (click)="step = 1">Back</button>
+                            <button (click)="potvrdiRezervaciju()">Potvrdi rezervaciju</button>
+                        </div>
+                    </div>
+                }
+
+                @if (message != "") { 
+                    <div class="error-message">
+                    <img src="assets/icons/warning.png" alt="Warning" class="error-icon">
+                    {{message}}
+                    </div> 
+                }
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="footer d-flex justify-content-center align-items-center py-3 bg-light shadow-sm w-100 mt-3">
+        <p class="mb-0"><strong>&copy; 2025 Planinska vikendica</strong></p>
+    </footer>
+</body>

@@ -1,0 +1,396 @@
+<div style="background-image: url('assets/main-background.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; min-height: 100vh; display: flex; flex-direction: column;">
+  <header class="header d-flex justify-content-center align-items-center py-3 bg-light shadow-sm w-100">
+    <nav class="nav flex-wrap justify-content-center">
+      <a class="nav-link" [class.active]="activeSection == 'profil'" (click)="setActiveSection('profil')">Profil</a>
+      <a class="nav-link" [class.active]="activeSection == 'rezervacije'" (click)="setActiveSection('rezervacije')">Rezervacije</a>
+      <a class="nav-link" [class.active]="activeSection == 'vikendice'" (click)="setActiveSection('vikendice')">Moje vikendice</a>
+      <a class="nav-link" [class.active]="activeSection == 'statistika'" (click)="setActiveSection('statistika')">Statistika</a>
+      <a class="nav-link" href="/changePassword">Promeni lozinku</a>
+      <a class="nav-link" (click)="odjaviSe()">Odjavi se</a>
+    </nav>
+  </header>
+
+  <main class="flex-grow-1 d-flex flex-column align-items-center mt-3 mb-3">
+    @if (activeSection == 'profil') {
+      <div class="white-box profil-box">
+        <div class="scrollable-content">
+          <div class="profile-section d-flex flex-column flex-md-row gap-4">
+            <div class="profile-left text-center">
+              <img [src]="'http://localhost:4000/uploads/' + ulogovan.profilna_slika" alt="Profilna slika" class="profile-img">
+              @if (azuriranjeSlike == false) {
+                <button class="small-btn" (click)="setAzuriranjeSlike()">Azuriraj sliku</button>
+              } @else {
+                <input type="file" class="small-btn" (change)="onFileSelected($event)" accept="image/png, image/jpeg">
+                <button class="small-btn" (click)="azurirajSliku()">Azuriraj sliku</button>
+              }
+            </div>
+            <div class="profile-right">
+              <table class="profile-table">
+                <tr>
+                  <td><strong>Ime:</strong></td>
+                  <td>@if (azuriranjeImena == false) { {{ ulogovan.ime }} } @else { <input type="text" [(ngModel)]="korisnik.ime" [value]="ulogovan.ime"> }</td>
+                  <td>@if (azuriranjeImena == false) { <button (click)="setAzuriranjeImena()">Azuriraj ime</button> } @else { <button (click)="azurirajIme()">Azuriraj ime</button> }</td>
+                </tr>
+                <tr>
+                  <td><strong>Prezime:</strong></td>
+                  <td>@if (azuriranjePrezimena == false) { {{ ulogovan.prezime }} } @else { <input type="text" [(ngModel)]="korisnik.prezime" [value]="ulogovan.prezime"> }</td>
+                  <td>@if (azuriranjePrezimena == false) { <button (click)="setAzuriranjePrezimena()">Azuriraj prezime</button> } @else { <button (click)="azurirajPrezime()">Azuriraj prezime</button> }</td>
+                </tr>
+                <tr>
+                  <td><strong>Adresa:</strong></td>
+                  <td>@if (azuriranjeAdrese == false) { {{ ulogovan.adresa }} } @else { <input type="text" [(ngModel)]="korisnik.adresa" [value]="ulogovan.adresa"> }</td>
+                  <td>@if (azuriranjeAdrese == false) { <button (click)="setAzuriranjeAdrese()">Azuriraj adresu</button> } @else { <button (click)="azurirajAdresu()">Azuriraj adresu</button> }</td>
+                </tr>
+                <tr>
+                  <td><strong>Kontakt telefon:</strong></td>
+                  <td>@if (azuriranjeTelefona == false) { {{ ulogovan.kontakt_telefon }} } @else { <input type="text" [(ngModel)]="korisnik.kontakt_telefon" [value]="ulogovan.kontakt_telefon"> }</td>
+                  <td>@if (azuriranjeTelefona == false) { <button (click)="setAzuriranjeTelefona()">Azuriraj kontakt telefon</button> } @else { <button (click)="azurirajTelefon()">Azuriraj kontakt telefon</button> }</td>
+                </tr>
+                <tr>
+                  <td><strong>E-mail:</strong></td>
+                  <td>@if (azuriranjeEMaila == false) { {{ ulogovan.mejl }} } @else { <input type="text" [(ngModel)]="korisnik.mejl" [value]="ulogovan.mejl"> }</td>
+                  <td>@if (azuriranjeEMaila == false) { <button (click)="setAzuriranjeEMaila()">Azuriraj E-mail</button> } @else { <button (click)="azurirajEMail()">Azuriraj mail</button> }</td>
+                </tr>
+              </table>
+
+              <div class="all-errors">
+                @if (message != "") { 
+                  <div class="error-message">
+                    <img src="assets/icons/warning.png" alt="Warning" class="error-icon">
+                    {{message}}
+                  </div> 
+                }
+                @if (messageSlika != "") { 
+                  <div class="error-message">
+                    <img src="assets/icons/warning.png" alt="Warning" class="error-icon">
+                    {{messageSlika}}
+                  </div> 
+                }
+                @if (messageIme != "") { 
+                  <div class="error-message">
+                    <img src="assets/icons/warning.png" alt="Warning" class="error-icon">
+                    {{messageIme}}
+                  </div> 
+                }
+                @if (messagePrezime != "") { 
+                  <div class="error-message">
+                    <img src="assets/icons/warning.png" alt="Warning" class="error-icon">
+                    {{messagePrezime}}
+                  </div> 
+                }
+                @if (messageAdresa != "") { 
+                  <div class="error-message">
+                    <img src="assets/icons/warning.png" alt="Warning" class="error-icon">
+                    {{messageAdresa}}
+                  </div> 
+                }
+                @if (messageTelefon != "") { 
+                  <div class="error-message">
+                    <img src="assets/icons/warning.png" alt="Warning" class="error-icon">
+                    {{messageTelefon}}
+                  </div> 
+                }
+                @if (messageEMail != "") { 
+                  <div class="error-message">
+                    <img src="assets/icons/warning.png" alt="Warning" class="error-icon">
+                    {{messageEMail}}
+                  </div> 
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    }
+
+    @if (activeSection == 'rezervacije') {
+      <div class="white-box rezervacije-box">
+        <div class="scrollable-content">
+          <div class="rezervacije-section table-scroll">
+            @if (messageRezervacije != "") { 
+              <div class="error-message">
+                <img src="assets/icons/warning.png" alt="Warning" class="error-icon">
+                {{messageRezervacije}}
+              </div> 
+            }
+            <table class="table table-striped table-bordered mb-0">
+              <thead class="table-dark">
+                <tr>
+                  <th>Vikendica</th>
+                  <th>Rezervant</th>
+                  <th>Datum početka</th>
+                  <th>Datum kraja</th>
+                  <th>Odrasli</th>
+                  <th>Deca</th>
+                  <th>Datum rezervacije</th>
+                  <th>Cena</th>
+                  <th>Status</th>
+                  <th>Opis</th>
+                  <th>Akcije</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (r of neobradjeneRezervacije; track r.id){
+                  <tr>
+                    <td>{{ r.vikendica?.naziv }}</td>
+                    <td>{{ r.rezervant?.ime }} {{ r.rezervant?.prezime }}</td>
+                    <td>{{ formatDate(r.datum_pocetka) }}</td>
+                    <td>{{ formatDate(r.datum_kraja) }}</td>
+                    <td>{{ r.odrasli_broj }}</td>
+                    <td>{{ r.deca_broj }}</td>
+                    <td>{{ formatDate(r.datum_rezervacije) }}</td>
+                    <td>{{ r.cena }}</td>
+                    <td>{{ r.status }}</td>
+                    <td>{{ r.opis }}</td>
+                    <td>
+                      <div class="akcije-container">
+                        <button (click)="potvrdiRezervaciju(r)">Potvrdi</button>
+                        <button (click)="odbijRezervaciju(r)">Odbij</button>
+                        <textarea [(ngModel)]="r.komentarZaOdbijanje" placeholder="Komentar uz odbijanje"></textarea>
+                      </div>
+                    </td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div style="height: 30px;">
+
+      </div>
+
+      <div class="calendar-container">
+        <full-calendar [options]="calendarOptions"></full-calendar>
+      </div>
+
+      @if (prikaziDijalog) {
+        <div class="modal-backdrop">
+          <div class="modal-content">
+            <h4 class="center-title mb-3">Detalji rezervacije</h4>
+            <p><strong>Vikendica:</strong> {{ izabranaRezervacija?.vikendica?.naziv }}</p>
+            <p><strong>Rezervant:</strong> {{ izabranaRezervacija?.rezervant?.ime }} {{ izabranaRezervacija?.rezervant?.prezime }}</p>
+            <p><strong>Od:</strong> {{ formatDate(izabranaRezervacija?.datum_pocetka) }}</p>
+            <p><strong>Do:</strong> {{ formatDate(izabranaRezervacija?.datum_kraja) }}</p>
+            <p><strong>Cena:</strong> {{ izabranaRezervacija?.cena }}</p>
+            <p><strong>Status:</strong> {{ izabranaRezervacija?.status }}</p>
+
+            <textarea [(ngModel)]="izabranaRezervacija.komentarZaOdbijanje" placeholder="Komentar (ako odbijate)"></textarea>
+
+            @if (messageRezervacije != "") { 
+              <div class="error-message">
+                <img src="assets/icons/warning.png" alt="Warning" class="error-icon">
+                {{messageRezervacije}}
+              </div> 
+            }
+
+            <div class="d-flex justify-content-between mt-3">
+              <button class="btn btn-success" (click)="potvrdiRezervaciju(izabranaRezervacija)">Potvrdi</button>
+              <button class="btn btn-danger" (click)="odbijRezervaciju(izabranaRezervacija)">Odbij</button>
+              <button class="btn btn-secondary" (click)="prikaziDijalog = false">Zatvori</button>
+            </div>
+          </div>
+        </div>
+      }
+    }
+
+    @if (activeSection == 'vikendice') {
+      <div class="white-box vikendice-box">
+        <div class="scrollable-content">
+          @if (izmenaVikendice == false) { 
+            <h2 class="center-title mb-3">Moje vikendice</h2>
+            <table class="table table-striped table-bordered mb-4">
+              <thead class="table-dark">
+                <tr>
+                  <th>Naziv</th>
+                  <th>Mesto</th>
+                  <th>Usluge</th>
+                  <th>Cenovnik letnji</th>
+                  <th>Cenovnik zimski</th>
+                  <th>Telefon</th>
+                  <th>Koordinate</th>
+                  <th>Slike</th>
+                  <th>Akcije</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (v of sveMojeVikendice; track v.id) {
+                  <tr>
+                    <td>{{ v.naziv }}</td>
+                    <td>{{ v.mesto }}</td>
+                    <td>{{ v.usluge }}</td>
+                    <td>{{ v.cenovnik_letnji }}</td>
+                    <td>{{ v.cenovnik_zimski }}</td>
+                    <td>{{ v.kontakt_telefon }}</td>
+                    <td>{{ v.koordinate }}</td>
+                    <td>
+                      <div class="vikendice-imgs">
+                        @for (slika of (v.slike || []); track slika) {
+                          <img [src]="'http://localhost:4000/vikendice_uploads/' + slika" alt="Slika vikendice" class="vikendica-img" />
+                        }
+                      </div>
+                    </td>
+                    <td>
+                      <div class="akcije-container">
+                        <button (click)="urediVikendicu(v)">Uredi</button>
+                        <button (click)="obrisiVikendicu(v)">Obriši</button>
+                      </div>
+                    </td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+
+            @if (messageVikendice != "") { 
+              <div class="error-message">
+                <img src="assets/icons/warning.png" alt="Warning" class="error-icon">
+                {{messageVikendice}}
+              </div> 
+            }
+          }
+        
+          @if (izmenaVikendice == true) {
+            <div class="vikendice-edit-box">
+                <h2 class="center-title">Izmeni vikendicu</h2>
+                <div class="edit-form">
+                    <div class="form-column">
+                        <div class="form-row">
+                            <label>Naziv vikendice:</label>
+                            <input type="text" [(ngModel)]="izabranaVikendicaZaIzmenu.naziv">
+                        </div>
+                        <div class="form-row">
+                            <label>Mesto:</label>
+                            <input type="text" [(ngModel)]="izabranaVikendicaZaIzmenu.mesto">
+                        </div>
+                        <div class="form-row">
+                            <label>Usluge:</label>
+                            <textarea [(ngModel)]="izabranaVikendicaZaIzmenu.usluge"></textarea>
+                        </div>
+                        <div class="form-row">
+                            <label>Cenovnik letnji:</label>
+                            <input type="text" [(ngModel)]="izabranaVikendicaZaIzmenu.cenovnik_letnji">
+                        </div>
+                    </div>
+                    <div class="form-column">
+                        <div class="form-row">
+                            <label>Cenovnik zimski:</label>
+                            <input type="text" [(ngModel)]="izabranaVikendicaZaIzmenu.cenovnik_zimski">
+                        </div>
+                        <div class="form-row">
+                            <label>Telefon:</label>
+                            <input type="text" [(ngModel)]="izabranaVikendicaZaIzmenu.kontakt_telefon">
+                        </div>
+                        <div class="form-row">
+                            <label>Koordinate:</label>
+                            <input type="text" [(ngModel)]="izabranaVikendicaZaIzmenu.koordinate">
+                        </div>
+                        <div class="form-row">
+                            <label>Slike:</label>
+                            <input type="file" (change)="onFilesSelectedIzmena($event)" multiple accept="image/*">
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-center">
+                    <button (click)="izmeniVikendicu()">Uredi</button>
+                    <button (click)="otkaziIzmenu()">Otkazi</button>
+                </div>
+                @if (messageVikendice != "") {
+                  <div class="error-center">
+                    <div class="error-message">
+                        <img src="assets/icons/warning.png" alt="Warning" class="error-icon">
+                        {{messageVikendice}}
+                    </div>
+                  </div>
+                }
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="white-box vikendice-add-box mt-3">
+        <div class="scrollable-content">
+          <h3 class="center-title mb-2">Dodaj novu vikendicu</h3>
+          <div class="form-grid small-form">
+            <label>Naziv:</label>
+            <input type="text" [(ngModel)]="vikendica.naziv">
+
+            <label>Mesto:</label>
+            <input type="text" [(ngModel)]="vikendica.mesto">
+
+            <label>Usluge:</label>
+            <textarea [(ngModel)]="vikendica.usluge"></textarea>
+
+            <label>Cenovnik letnji:</label>
+            <input type="text" [(ngModel)]="vikendica.cenovnik_letnji">
+
+            <label>Cenovnik zimski:</label>
+            <input type="text" [(ngModel)]="vikendica.cenovnik_zimski">
+
+            <label>Telefon:</label>
+            <input type="text" [(ngModel)]="vikendica.kontakt_telefon">
+
+            <label>Koordinate:</label>
+            <input type="text" [(ngModel)]="vikendica.koordinate">
+
+            <label>Slike:</label>
+            <input type="file" (change)="onFilesSelected($event)" multiple accept="image/*">
+          </div>
+
+          <div class="btn-center">
+            <button (click)="dodajVikendicu()">Dodaj vikendicu</button>
+          </div>
+
+          <div class="json-upload-center">
+            <div class="json-inner">
+              <label for="jsonInput">JSON fajl:</label>
+              <input id="jsonInput" type="file" (change)="onJsonSelected($event)" accept="application/json">
+            </div>
+          </div>
+
+
+          <div class="error-center">
+            @if (message != "") {
+              <div class="error-message">
+                <img src="assets/icons/warning.png" alt="Warning" class="error-icon">
+                {{message}}
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    }
+
+    @if (activeSection == 'statistika') {
+      <div class="charts-container d-flex flex-column align-items-center">
+        <div class="chart-box">
+            <h3 class="chart-title">Broj rezervacija po mesecima</h3>
+            <canvas baseChart
+                    [data]="barChartData"
+                    [options]="barChartOptions"
+                    width="800"
+                    height="300"
+                    [type]="'bar'">
+            </canvas>
+          </div>
+
+          <div class="pie-grid">
+            @for (chart of pieCharts; track chart) {
+              <div class="pie-item">
+                <h3 class="chart-title">{{ chart.naziv }}</h3>
+                <canvas baseChart
+                        [data]="chart.data"
+                        [type]="'pie'">
+                </canvas>
+            </div>
+            }
+            
+          </div>
+      </div>
+    }
+  </main>
+
+  <footer class="bg-light py-3 text-center shadow-sm mt-auto">
+    <p><strong>&copy; 2025 Planinska vikendica</strong></p>
+  </footer>
+</div>

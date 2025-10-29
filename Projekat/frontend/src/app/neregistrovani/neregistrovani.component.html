@@ -1,0 +1,83 @@
+<div style="background-image: url('assets/main-background.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; min-height: 100vh; display: flex; flex-direction: column;">
+  <header class="header d-flex justify-content-center align-items-center py-3 bg-light shadow-sm fixed-top w-100">
+    <nav class="nav">
+      <a class="nav-link" (click)="setActiveSection('opste informacije')" [style.color]="activeSection === 'opste informacije' ? 'orange' : '#011e4f'">Opšte informacije</a>
+      <a class="nav-link" (click)="setActiveSection('vikendice')" [style.color]="activeSection === 'vikendice' ? 'orange' : '#011e4f'">Vikendice</a>
+      <a class="nav-link" href="/login">Prijavi se</a>
+    </nav>
+  </header>
+
+  <main class="content d-flex flex-column justify-content-center align-items-center">
+    @if (activeSection == "opste informacije") {
+      <div class="card text-center p-4 info-card">
+        <table class="info-table mx-auto">
+          <tr>
+            <td>Ukupan broj vikendica:</td>
+            <td>{{ ukupanBrojVikendica }}</td>
+          </tr>
+          <tr>
+            <td>Ukupan broj registrovanih vlasnika:</td>
+            <td>{{ ukupanBrojVlasnika }}</td>
+          </tr>
+          <tr>
+            <td>Ukupan broj registrovanih turista:</td>
+            <td>{{ ukupanBrojTurista }}</td>
+          </tr>
+          <tr>
+            <td>Ukupan broj rezervacija u zadnjih 24h:</td>
+            <td>{{ rezervacijeZadnjih24h }}</td>
+          </tr>
+          <tr>
+            <td>Ukupan broj rezervacija u zadnjih 7 dana:</td>
+            <td>{{ rezervacijeZadnjih7Dana }}</td>
+          </tr>
+          <tr>
+            <td>Ukupan broj rezervacija u zadnjih 30 dana:</td>
+            <td>{{ rezervacijeZadnjih30Dana }}</td>
+          </tr>
+        </table>
+      </div>
+    }
+
+    @if (activeSection == "vikendice") {
+      <div class="card mb-4 p-3 w-auto d-flex flex-column align-items-center">
+        <div class="d-flex align-items-center gap-2 mb-3 justify-content-center flex-wrap">
+          <span class="fw-bold">Pretraga:</span>
+          <input type="text" class="form-control form-control-sm w-auto" [(ngModel)]="filterNaziv" placeholder="Naziv" (ngModelChange)="primeniFilter()">
+          <input type="text" class="form-control form-control-sm w-auto" [(ngModel)]="filterMesto" placeholder="Mesto" (ngModelChange)="primeniFilter()">
+        </div>
+
+        <div class="d-flex align-items-center gap-2 mb-3 justify-content-center flex-wrap">
+          <span class="fw-bold">Sortiraj po:</span>
+          <button class="btn-vikendice" (click)="sortiraj('naziv', 'asc')">Naziv ↑</button>
+          <button class="btn-vikendice" (click)="sortiraj('naziv', 'desc')">Naziv ↓</button>
+          <button class="btn-vikendice" (click)="sortiraj('mesto', 'asc')">Mesto ↑</button>
+          <button class="btn-vikendice" (click)="sortiraj('mesto', 'desc')">Mesto ↓</button>
+        </div>
+
+        <div class="table-scroll">
+          <table class="table table-striped table-bordered mb-0">
+            <thead class="table-dark">
+              <tr>
+                <th>Naziv</th>
+                <th>Mesto</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (v of filtriraneVikendice; track v.naziv){
+                <tr>
+                  <td>{{v.naziv}}</td>
+                  <td>{{v.mesto}}</td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+    }
+  </main>
+
+  <footer class="bg-light py-3 text-center shadow-sm fixed-bottom">
+    <p><strong>&copy; 2025 Planinska vikendica</strong></p>
+  </footer>
+</div>

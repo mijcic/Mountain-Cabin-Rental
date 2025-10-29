@@ -1,0 +1,502 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+* {
+  font-family: 'Lucida Sans', sans-serif;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.white-box {
+  width: 85%;
+  max-width: 1000px;
+  background-color: rgba(255,255,255,0.95);
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  max-height: 85vh;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.profil-box {
+  max-width: 900px;
+}
+
+.rezervacije-box {
+  max-width: 1200px;
+  max-height: 500px;
+}
+
+.scrollable-content {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.profile-section {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.profile-left {
+  flex: 0 0 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.profile-left button,
+.profile-left input[type="file"],
+button {
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #011e4f;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.profile-left button:hover,
+button:hover,
+.profile-left input[type="file"]:hover {
+  background-color: #9ebcd8;
+  transform: scale(1.05);
+}
+
+.profile-right {
+  flex: 1;
+}
+
+.profile-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.profile-table td, .profile-table th {
+  padding: 6px 10px;
+  vertical-align: middle;
+}
+
+.vikendice-section img {
+  margin: 2px;
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.rezervacije-section table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.rezervacije-section th, .rezervacije-section td {
+  padding: 12px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.akcije-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.rezervacije-section textarea {
+  width: 100%;
+  height: 50px;
+}
+
+.header .nav-link {
+  color: #011e4f;
+  font-weight: bold;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.header .nav-link.active {
+  color: orange;
+}
+
+header a:hover {
+  text-decoration: underline;
+}
+
+.error-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.all-errors {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 15px;
+  width: 100%;
+}
+
+.error-message {
+  color: orange;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: center;
+}
+
+.rezervacije-message-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.rezervacije-message-box {
+  width: 90%;
+  max-width: 1200px;
+  padding: 15px 20px;
+  background-color: rgba(255,255,255,0.95);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: orange;
+  font-weight: bold;
+}
+
+.vikendice-box {
+  max-width: 1200px;
+  margin-bottom: 5px;
+}
+
+.vikendice-box table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.vikendice-box th,
+.vikendice-box td {
+  padding: 10px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.vikendice-imgs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  justify-items: center;
+}
+
+.vikendica-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 6px;
+  object-fit: cover;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 10px 20px;
+  align-items: center;
+}
+
+.form-grid label {
+  font-weight: bold;
+  text-align: right;
+}
+
+.form-grid input,
+.form-grid textarea {
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.vikendice-box button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: #011e4f;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.vikendice-box button:hover {
+  background-color: #9ebcd8;
+  transform: scale(1.05);
+}
+
+.vikendice-box .scrollable-content {
+  max-height: 450px; 
+  overflow-y: auto;
+  padding-right: 10px; 
+}   
+
+.vikendice-add-box label {
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.small-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.vikendice-add-box {
+  max-width: 550px;
+  margin: 0 auto; 
+}
+
+.vikendice-add-box input,
+.vikendice-add-box textarea {
+  width: 100%;
+  max-width: 300px;
+  font-size: 14px;
+  padding: 6px;
+  margin-bottom: 8px;
+}
+
+.center-title {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.btn-center {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.error-center {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+  .profile-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-left, .profile-right {
+    width: 100%;
+    text-align: center;
+  }
+
+  button, .profile-left input[type="file"] {
+    width: 100%;
+  }
+}
+
+.vikendice-edit-box {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 10px 15px 15px 15px; 
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.vikendice-edit-box .center-title {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.vikendice-edit-box .error-center {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.vikendice-edit-box input,
+.vikendice-edit-box textarea {
+  width: 100%;
+  max-width: 350px; 
+  padding: 8px 12px; 
+  font-size: 15px; 
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  background-color: #fff;
+}
+
+.edit-form {
+  display: flex;
+  gap: 40px; 
+  justify-content: space-between;
+  flex-wrap: wrap; 
+}
+
+.form-column {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; 
+  flex: 1;
+}
+
+.form-row label {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.vikendice-edit-box .btn-center {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.json-upload-center {
+  display: flex;
+  justify-content: center; 
+  margin-top: 10px;
+  width: 100%;
+}
+
+.json-inner {
+  display: flex;
+  align-items: center;
+  gap: 10px; 
+}
+
+.calendar-container {
+  width: 90%;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  width: 420px;
+  max-width: 90%;
+}
+
+.modal-content textarea {
+  width: 100%;
+  height: 70px;
+  margin-top: 10px;
+}
+
+.center-title {
+  text-align: center;
+}
+
+.charts-container {
+  gap: 30px;
+}
+
+.chart-box {
+  background-color: rgba(255, 255, 255);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.pie-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 25px;
+  justify-items: center;
+  align-items: start;
+  margin-top: 30px;
+}
+
+.pie-item {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  width: 250px;
+  text-align: center;
+}
+
+.pie-item canvas {
+  max-width: 180px;
+  max-height: auto;
+  margin: 0 auto;
+}
+
+.chart-title {
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.bar-chart-container {
+  background: #ffffff;              
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+  width: 90%;
+  max-width: 1200px;
+  margin: 30px auto;
+}
+
+.bar-chart-container canvas {
+  background: #ffffff !important;   
+  width: 100% !important;
+  height: 400px !important;
+  display: block;
+}
+
+.chart-legend {
+  font-size: 10px; 
+}

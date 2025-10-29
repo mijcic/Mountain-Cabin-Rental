@@ -1,0 +1,487 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+* {
+  font-family: 'Lucida Sans', sans-serif;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.white-box {
+  width: 80%;
+  max-width: 900px;
+  background-color: rgba(255,255,255,0.95);
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  max-height: 80vh;   
+  overflow-y: auto;   
+  scroll-behavior: smooth;
+}
+
+.scrollable-content {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.header .nav-link {
+  color: #011e4f;
+  font-weight: bold;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.header .nav-link.active {
+  color: orange;
+}
+
+header a:hover {
+  text-decoration: underline;
+}
+
+.profile-section {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.profile-left {
+  flex: 0 0 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-left img.profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.profile-left button,
+.profile-left input[type="file"] {
+  width: 200px;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #011e4f;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.profile-left button:hover,
+.profile-left input[type="file"]:hover {
+  background-color: #9ebcd8;
+  transform: scale(1.05);
+}
+
+.profile-right {
+  flex: 1;
+  min-width: 250px;
+}
+
+.profile-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.profile-table td, .profile-table th {
+  border: none;
+  padding: 6px 10px;
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+.profile-table td input {
+  width: 100%;
+  max-width: 250px;
+  height: 36px;
+  padding: 0 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.profile-table td button {
+  width: 120px;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #011e4f;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.profile-table td button:hover {
+  background-color: #9ebcd8;
+  transform: scale(1.05);
+}
+
+.error-message {
+  color: orange;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.error-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.all-errors {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.btn-vikendice {
+  padding: 8px 18px;
+  border: none;
+  border-radius: 5px;
+  background-color: #011e4f;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-vikendice:hover {
+  background-color: #9ebcd8;
+  transform: scale(1.05);
+}
+
+.btn-vikendice-secondary {
+  padding: 8px 18px;
+  border: none;
+  border-radius: 5px;
+  background-color: #6c757d;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-vikendice-secondary:hover {
+  background-color: #a9a9a9;
+  transform: scale(1.05);
+}
+
+.vikendice-section table {
+  table-layout: fixed;  
+  width: 100%;
+}
+
+.vikendice-section th, 
+.vikendice-section td {
+  width: 50%;
+  text-align: center;
+}
+
+.rezervacije-section.table-scroll {
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.rezervacije-section table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.rezervacije-section th, 
+.rezervacije-section td {
+  padding: 18px 24px; 
+  text-align: center;
+  vertical-align: middle;
+  word-wrap: break-word;
+}
+
+.rezervacije-section tr.crveno {
+  background-color: rgba(255, 0, 0, 0.15) !important;
+  color: darkred !important;
+  font-weight: bold;
+}
+
+.rezervacije-section tr.zeleno {
+  background-color: rgba(0, 128, 0, 0.15) !important;
+  color: darkgreen !important;
+  font-weight: bold;
+}
+
+.info-card {
+  max-width: 500px;
+  width: 80%;
+  text-align: center;
+  padding: 20px 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.info-table {
+  border-collapse: collapse;
+  width: auto;
+  margin: auto;
+}
+
+.info-table td {
+  border: 1px solid rgba(0,0,0,0.1);
+  padding: 8px 12px;
+}
+
+.info-table td:first-child {
+  width: 450px; 
+}
+
+.info-table td:last-child {
+  width: 100px; 
+}
+
+@media (max-width: 768px) {
+  .profile-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-left, .profile-right {
+    width: 100%;
+    text-align: center;
+  }
+
+  .profile-table td button,
+  .profile-left button,
+  .profile-left input[type="file"] {
+    width: 100%;
+  }
+
+  .btn-vikendice,
+  .btn-vikendice-secondary {
+    width: 100%;
+    margin-top: 5px;
+  }
+
+  .vikendice-section th, .vikendice-section td {
+    width: 100%;
+  }
+}
+.rezervacije-section tr.crveno td {
+  background-color: rgba(255, 0, 0, 0.15) !important;
+  color: darkred !important;
+  font-weight: bold;
+}
+
+.rezervacije-section tr.zeleno td {
+  background-color: rgba(0, 128, 0, 0.15) !important;
+  color: darkgreen !important;
+  font-weight: bold;
+}
+
+.rezervacije-section tr.crveno, 
+.rezervacije-section tr.crveno td {
+  background-color: rgba(231, 160, 160, 0.4) !important; 
+  color: darkred !important;
+  font-weight: bold;
+}
+
+.rezervacije-section tr.zeleno, 
+.rezervacije-section tr.zeleno td {
+  background-color: rgba(158, 227, 158, 0.4) !important; 
+  color: darkgreen !important;
+  font-weight: bold;
+}
+
+.center-title {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.rezervacije-section {
+  margin-bottom: 30px; 
+}
+
+.rezervacije-box {
+  width: 80%;  
+  max-width: 900px;
+  margin-bottom: 30px;
+}
+
+.star-rating {
+  display: inline-block;
+  font-size: 2rem;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.star-rating .filled {
+  color: gold;
+}
+
+.small-btn {
+  width: 120px; 
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #011e4f;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.small-btn:hover {
+  background-color: #9ebcd8;
+  transform: scale(1.05);
+}
+
+.error-message1 {
+  color: orange;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: center;
+}
+
+.recenzija-prikaz {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.recenzija-komentar {
+  font-style: italic;
+  font-size: 1rem;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.ocena-zvezdica {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;  
+}
+
+.ocena {
+  font-weight: bold;
+  font-size: 1.5rem; 
+  color: #000;
+}
+
+.zvezdica {
+  font-size: 1.8rem; 
+  color: gold;     
+}
+
+.star-display {
+  color: #ccc; 
+  font-size: 18px;
+}
+
+.star-display .filled {
+  color: gold; 
+}
+
+.star-display {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+}
+
+.star-display .zvezdice span {
+  font-size: 20px; 
+  color: gold;
+}
+
+.star-display .ocena {
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 4px;
+}
+
+.zvezdice span {
+  color: lightgray;
+  font-size: 20px;
+}
+
+.zvezdice span.filled {
+  color: gold; 
+}
+
+.zvezdice span.empty {
+  color: lightgray; 
+  font-size: 20px;
+}
+
+.error-message2 {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap; 
+  justify-content: center; 
+  color: orange;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.ocena_NA {
+  font-weight: bold;
+  font-size: 1.2rem; 
+  color: #000;
+}
+
+.star {
+  display: inline-block;
+  position: relative;
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;       
+  text-align: center;
+}
+
+.star .full {
+  color: gold;
+}
+
+.star .empty {
+  color: lightgray;
+}
+
+.star .half {
+  color: lightgray;
+  position: relative;
+}
+
+.star .half::before {
+  content: "★";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;        
+  color: gold;
+  overflow: hidden;
+}
