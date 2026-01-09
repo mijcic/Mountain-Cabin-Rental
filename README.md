@@ -12,7 +12,7 @@ The platform features secure login, dynamic content display, sortable and search
 
 ---
 
-## 🔑 Key Features
+## Key Features
 
 - **User Authentication**
   - Login form for tourists, owners, and admins.
@@ -39,7 +39,7 @@ The platform features secure login, dynamic content display, sortable and search
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Frontend:** Angular, HTML5, CSS3, JavaScript (TypeScript)
 - **Backend:** Node.js, Express
@@ -49,7 +49,7 @@ The platform features secure login, dynamic content display, sortable and search
 
 ---
 
-## 🧠 Project Highlights
+## Project Highlights
 
 - Multi-role user system with role-specific views and permissions.
 - Dynamic content filtering (search, sort) for cabins and bookings.
