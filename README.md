@@ -56,3 +56,9 @@ The platform features secure login, dynamic content display, sortable and search
 - Secure user registration and login with form validation.
 - Real-world reservation flow with booking review and status updates.
 - Responsive design for cross-device compatibility.
+
+---
+
+## Project Structure
+
+All source code and configuration files are located inside the `Projekat/` directory.
