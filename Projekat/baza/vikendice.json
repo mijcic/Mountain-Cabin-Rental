@@ -1,0 +1,70 @@
+[{
+  "_id": {
+    "$oid": "68e3feb9e0bdcae31bf1a5f8"
+  },
+  "id": 1,
+  "naziv": "Planinska kuca Tara",
+  "mesto": "Tara",
+  "usluge": "Wi-Fi, Kamin, Parking, Rostilj, Pogled na sumu",
+  "cenovnik_letnji": "80",
+  "cenovnik_zimski": "100",
+  "kontakt_telefon": "+381601112223",
+  "koordinate": "43.9008,19.5171",
+  "slike": [
+    "1759772376328.jpg",
+    "1759772376329.jpg",
+    "1759772376330.jpg",
+    "1759772376331.jpg"
+  ],
+  "vlasnik": {
+    "$oid": "68e3f9dfe0bdcae31bf1a4f2"
+  },
+  "status": "aktivna",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68e40a0aff80dd2707f0810e"
+  },
+  "id": 3,
+  "naziv": "Drvena Koliba Kopaonik",
+  "mesto": "Kopaonik",
+  "usluge": "Wi-Fi, Kamin, Skijasnica, TV, Terasa",
+  "cenovnik_letnji": "120",
+  "cenovnik_zimski": "150",
+  "kontakt_telefon": "+381601112223",
+  "koordinate": "43.2850,20.8220",
+  "slike": [
+    "1759775242544.jpg",
+    "1759775242546.jpg",
+    "1759775242549.jpg"
+  ],
+  "vlasnik": {
+    "$oid": "68e3f9e0e0bdcae31bf1a4fb"
+  },
+  "status": "aktivna",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68e40adeff80dd2707f08113"
+  },
+  "id": 4,
+  "naziv": "Etno Kuca Fruska Gora",
+  "mesto": "Irig",
+  "usluge": "Wi-Fi, Bazen, Restoran, Bicikli, Parking",
+  "cenovnik_letnji": "70",
+  "cenovnik_zimski": "85",
+  "kontakt_telefon": "+381631234567",
+  "koordinate": "45.0932,19.8411",
+  "slike": [
+    "1759826956061.jpg",
+    "1759826956063.jpg",
+    "1759826956065.jpg"
+  ],
+  "vlasnik": {
+    "$oid": "68e3f9e0e0bdcae31bf1a4fb"
+  },
+  "status": "aktivna",
+  "__v": 0
+}]

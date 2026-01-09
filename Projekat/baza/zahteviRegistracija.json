@@ -1,0 +1,108 @@
+[{
+  "_id": {
+    "$oid": "68e3f30c2498e4b9b13f4608"
+  },
+  "korisnicko_ime": "ivan",
+  "lozinka": "$2b$10$UbJOvYsQ2oUD/6Izzrl2v.IPyECi6aEFXfR7Bd.eVu7hCO73eeMd6",
+  "tip": "turista",
+  "ime": "Ivan",
+  "prezime": "Ivanovic",
+  "pol": "M",
+  "adresa": "Nis, Cara Dusana 88",
+  "kontakt_telefon": "0607654321",
+  "mejl": "ivan.ivanovic@gmail.com",
+  "profilna_slika": "1759769356103.jpg",
+  "broj_kreditne_kartice": "5124007200008765",
+  "status": "prihvacen",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68e3f6bde0bdcae31bf1a49f"
+  },
+  "korisnicko_ime": "jovan",
+  "lozinka": "$2b$10$blkx.B5S8y7qRceLPYyuM./A0xXgG/KxPFp59HDHAnO/DYkGGHA8O",
+  "tip": "vlasnik",
+  "ime": "Jovan",
+  "prezime": "Jovanovic",
+  "pol": "M",
+  "adresa": "Beograd, Kralja Petra 12",
+  "kontakt_telefon": "+381601112223",
+  "mejl": "jovan.jovanovic@gmail.com",
+  "profilna_slika": "1759770301830.jpg",
+  "broj_kreditne_kartice": "4539007180001234",
+  "status": "prihvacen",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68e3f7d6e0bdcae31bf1a4af"
+  },
+  "korisnicko_ime": "stefan",
+  "lozinka": "$2b$10$C/6jXXgSLUqvKfFWZ1xmS.D6duyFyQVnvGacgOqCQ4QI38zHlVBQi",
+  "tip": "vlasnik",
+  "ime": "Stefan",
+  "prezime": "Stefanovic",
+  "pol": "M",
+  "adresa": "Novi Sad, Njegoseva 45",
+  "kontakt_telefon": "0631234567",
+  "mejl": "stefan.stefanovic@gmail.com",
+  "profilna_slika": "1759770582085.jpg",
+  "broj_kreditne_kartice": "300007190005678",
+  "status": "prihvacen",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68e3f858e0bdcae31bf1a4b6"
+  },
+  "korisnicko_ime": "jana",
+  "lozinka": "$2b$10$m8BSQMuZRJKeyUt0xubMnu73.hnWRRMWhoYvtICQCuATtFPrlY6SO",
+  "tip": "turista",
+  "ime": "Jana",
+  "prezime": "Janic",
+  "pol": "Z",
+  "adresa": "Kragujevac, Vojvode Stepe 200",
+  "kontakt_telefon": "0641234321",
+  "mejl": "jana.janic@gmail.com",
+  "profilna_slika": "1759770712563.jpg",
+  "broj_kreditne_kartice": "5524007210004321",
+  "status": "prihvacen",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68e3f94fe0bdcae31bf1a4d3"
+  },
+  "korisnicko_ime": "marko",
+  "lozinka": "$2b$10$rtTeKvhzlliUwO6uZtCFnuQhpK3werfQc.2aAtZMuH7Hs1IeDrjRK",
+  "tip": "turista",
+  "ime": "Marko",
+  "prezime": "Markovic",
+  "pol": "M",
+  "adresa": "Subotica, Zlatiborska 15",
+  "kontakt_telefon": "0651111555",
+  "mejl": "marko.markovic@gmail.com",
+  "profilna_slika": "1759770959280.jpg",
+  "broj_kreditne_kartice": "5124007200005555",
+  "status": "na_cekanju",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68e3f9c7e0bdcae31bf1a4e3"
+  },
+  "korisnicko_ime": "tina",
+  "lozinka": "$2b$10$XSfsfok4u4htg6VDguNFNOtgjIgq9zmR2nK67hOQwBpYIe01ojx82",
+  "tip": "vlasnik",
+  "ime": "Tina",
+  "prezime": "Tinic",
+  "pol": "Z",
+  "adresa": "Beograd, Kosovska 18",
+  "kontakt_telefon": "0652222333",
+  "mejl": "tina.tinic@gmail.com",
+  "profilna_slika": "1759771079794.jpg",
+  "broj_kreditne_kartice": "300111112222333",
+  "status": "prihvacen",
+  "__v": 0
+}]

@@ -1,0 +1,261 @@
+[{
+  "_id": {
+    "$oid": "68e432f2001c6c49635d4438"
+  },
+  "id": 1,
+  "datum_pocetka": {
+    "$date": "2025-09-01T13:00:00.000Z"
+  },
+  "datum_kraja": {
+    "$date": "2025-09-04T07:00:00.000Z"
+  },
+  "odrasli_broj": 2,
+  "deca_broj": 0,
+  "broj_kreditne_kartice": "5124007200008765",
+  "opis": "Dodatni jastuci i posteljina",
+  "rezervant": {
+    "$oid": "68e3f49de0bdcae31bf1a483"
+  },
+  "vikendica": {
+    "$oid": "68e3feb9e0bdcae31bf1a5f8"
+  },
+  "datum_rezervacije": {
+    "$date": "2025-10-06T21:21:54.910Z"
+  },
+  "cena": 600,
+  "status": "potvrdjena",
+  "komentarZaOdbijanje": "",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68e43370001c6c49635d4450"
+  },
+  "id": 2,
+  "datum_pocetka": {
+    "$date": "2025-10-12T12:30:00.000Z"
+  },
+  "datum_kraja": {
+    "$date": "2025-10-16T07:00:00.000Z"
+  },
+  "odrasli_broj": 1,
+  "deca_broj": 2,
+  "broj_kreditne_kartice": "5524007210004321",
+  "opis": "",
+  "rezervant": {
+    "$oid": "68e3f9e2e0bdcae31bf1a504"
+  },
+  "vikendica": {
+    "$oid": "68e40adeff80dd2707f08113"
+  },
+  "datum_rezervacije": {
+    "$date": "2025-10-06T21:24:00.880Z"
+  },
+  "cena": 1020,
+  "status": "potvrdjena",
+  "komentarZaOdbijanje": "",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68e43423001c6c49635d4465"
+  },
+  "id": 3,
+  "datum_pocetka": {
+    "$date": "2025-09-10T14:00:00.000Z"
+  },
+  "datum_kraja": {
+    "$date": "2025-09-13T06:00:00.000Z"
+  },
+  "odrasli_broj": 2,
+  "deca_broj": 2,
+  "broj_kreditne_kartice": "5524007210004321",
+  "opis": "Krevetac za bebu",
+  "rezervant": {
+    "$oid": "68e3f9e2e0bdcae31bf1a504"
+  },
+  "vikendica": {
+    "$oid": "68e3feb9e0bdcae31bf1a5f8"
+  },
+  "datum_rezervacije": {
+    "$date": "2025-10-06T21:26:59.582Z"
+  },
+  "cena": 1200,
+  "status": "potvrdjena",
+  "komentarZaOdbijanje": "",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68e435c7001c6c49635d4481"
+  },
+  "id": 4,
+  "datum_pocetka": {
+    "$date": "2025-09-23T13:00:00.000Z"
+  },
+  "datum_kraja": {
+    "$date": "2025-09-26T08:30:00.000Z"
+  },
+  "odrasli_broj": 1,
+  "deca_broj": 0,
+  "broj_kreditne_kartice": "300111112222333",
+  "opis": "",
+  "rezervant": {
+    "$oid": "68e3f9ebe0bdcae31bf1a50d"
+  },
+  "vikendica": {
+    "$oid": "68e3feb9e0bdcae31bf1a5f8"
+  },
+  "datum_rezervacije": {
+    "$date": "2025-10-06T21:33:59.397Z"
+  },
+  "cena": 300,
+  "status": "potvrdjena",
+  "komentarZaOdbijanje": "",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68e4489e61ddcf119e2e310e"
+  },
+  "id": 5,
+  "datum_pocetka": {
+    "$date": "2025-10-07T12:00:00.000Z"
+  },
+  "datum_kraja": {
+    "$date": "2025-10-08T06:00:00.000Z"
+  },
+  "odrasli_broj": 2,
+  "deca_broj": 0,
+  "broj_kreditne_kartice": "5524007210004321",
+  "opis": "",
+  "rezervant": {
+    "$oid": "68e3f9e2e0bdcae31bf1a504"
+  },
+  "vikendica": {
+    "$oid": "68e40adeff80dd2707f08113"
+  },
+  "datum_rezervacije": {
+    "$date": "2025-10-06T22:54:22.397Z"
+  },
+  "cena": 170,
+  "status": "potvrdjena",
+  "komentarZaOdbijanje": "",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68e448fa61ddcf119e2e3136"
+  },
+  "id": 6,
+  "datum_pocetka": {
+    "$date": "2025-10-15T13:00:00.000Z"
+  },
+  "datum_kraja": {
+    "$date": "2025-10-18T08:00:00.000Z"
+  },
+  "odrasli_broj": 4,
+  "deca_broj": 0,
+  "broj_kreditne_kartice": "5124007200008765",
+  "opis": "",
+  "rezervant": {
+    "$oid": "68e3f49de0bdcae31bf1a483"
+  },
+  "vikendica": {
+    "$oid": "68e40a0aff80dd2707f0810e"
+  },
+  "datum_rezervacije": {
+    "$date": "2025-09-08T22:55:54.453Z"
+  },
+  "cena": 1800,
+  "status": "potvrdjena",
+  "komentarZaOdbijanje": "",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68e4495361ddcf119e2e3162"
+  },
+  "id": 7,
+  "datum_pocetka": {
+    "$date": "2025-09-29T15:00:00.000Z"
+  },
+  "datum_kraja": {
+    "$date": "2025-10-01T08:00:00.000Z"
+  },
+  "odrasli_broj": 2,
+  "deca_broj": 0,
+  "broj_kreditne_kartice": "5124007200008765",
+  "opis": "",
+  "rezervant": {
+    "$oid": "68e3f49de0bdcae31bf1a483"
+  },
+  "vikendica": {
+    "$oid": "68e40adeff80dd2707f08113"
+  },
+  "datum_rezervacije": {
+    "$date": "2025-10-06T22:57:23.820Z"
+  },
+  "cena": 340,
+  "status": "potvrdjena",
+  "komentarZaOdbijanje": "",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68e4d8fd5cb5bc403a6d82c5"
+  },
+  "id": 8,
+  "datum_pocetka": {
+    "$date": "2025-10-20T13:00:00.000Z"
+  },
+  "datum_kraja": {
+    "$date": "2025-10-22T07:00:00.000Z"
+  },
+  "odrasli_broj": 1,
+  "deca_broj": 0,
+  "broj_kreditne_kartice": "5124007200008765",
+  "opis": "",
+  "rezervant": {
+    "$oid": "68e3f49de0bdcae31bf1a483"
+  },
+  "vikendica": {
+    "$oid": "68e40a0aff80dd2707f0810e"
+  },
+  "datum_rezervacije": {
+    "$date": "2025-10-07T09:10:21.421Z"
+  },
+  "cena": 300,
+  "status": "neobradjena",
+  "komentarZaOdbijanje": "",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68e4d9335cb5bc403a6d82dd"
+  },
+  "id": 9,
+  "datum_pocetka": {
+    "$date": "2025-10-20T12:00:00.000Z"
+  },
+  "datum_kraja": {
+    "$date": "2025-10-23T06:00:00.000Z"
+  },
+  "odrasli_broj": 2,
+  "deca_broj": 0,
+  "broj_kreditne_kartice": "5524007210004321",
+  "opis": "",
+  "rezervant": {
+    "$oid": "68e3f9e2e0bdcae31bf1a504"
+  },
+  "vikendica": {
+    "$oid": "68e40adeff80dd2707f08113"
+  },
+  "datum_rezervacije": {
+    "$date": "2025-10-07T09:11:15.054Z"
+  },
+  "cena": 510,
+  "status": "neobradjena",
+  "komentarZaOdbijanje": "",
+  "__v": 0
+}]

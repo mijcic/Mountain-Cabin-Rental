@@ -1,0 +1,51 @@
+[{
+  "_id": {
+    "$oid": "68e43790001c6c49635d44ea"
+  },
+  "komentar": "Bilo je jako bucno ujutru.",
+  "ocena": 1,
+  "korisnik": {
+    "$oid": "68e3f49de0bdcae31bf1a483"
+  },
+  "rezervacija": {
+    "$oid": "68e432f2001c6c49635d4438"
+  },
+  "datum_ocenjivanja": {
+    "$date": "2025-10-06T21:41:36.996Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68e437dc001c6c49635d4512"
+  },
+  "komentar": "Trazili smo krevetac za bebu, a nismo ga dobili!",
+  "ocena": 1,
+  "korisnik": {
+    "$oid": "68e3f9e2e0bdcae31bf1a504"
+  },
+  "rezervacija": {
+    "$oid": "68e43423001c6c49635d4465"
+  },
+  "datum_ocenjivanja": {
+    "$date": "2025-10-06T21:42:52.701Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68e437fb001c6c49635d4539"
+  },
+  "komentar": "Bilo je neuredno kada smo stigli!",
+  "ocena": 1,
+  "korisnik": {
+    "$oid": "68e3f9ebe0bdcae31bf1a50d"
+  },
+  "rezervacija": {
+    "$oid": "68e435c7001c6c49635d4481"
+  },
+  "datum_ocenjivanja": {
+    "$date": "2025-10-06T21:43:23.380Z"
+  },
+  "__v": 0
+}]

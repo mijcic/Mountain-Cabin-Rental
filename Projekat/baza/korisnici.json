@@ -1,0 +1,108 @@
+[{
+  "_id": {
+    "$oid": "68e3dc5b423d19df7c8639e4"
+  },
+  "korisnicko_ime": "admin",
+  "lozinka": "$2b$10$sLqgzyBJjxuiSPqjv6h0luzTtMQf2oYxY4sBrSJVDAxcLXwnBtZP.",
+  "tip": "administrator",
+  "ime": "Milan",
+  "prezime": "Milanovic",
+  "pol": "M",
+  "adresa": "Beograd, Nemanjina 5",
+  "kontakt_telefon": "+381621112222",
+  "mejl": "milan.milanovic@gmail.com",
+  "profilna_slika": "default_user_photo.jpg",
+  "broj_kreditne_kartice": "300111111111122",
+  "status": "aktivan",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68e3f49de0bdcae31bf1a483"
+  },
+  "korisnicko_ime": "ivan",
+  "lozinka": "$2b$10$UbJOvYsQ2oUD/6Izzrl2v.IPyECi6aEFXfR7Bd.eVu7hCO73eeMd6",
+  "tip": "turista",
+  "ime": "Ivan",
+  "prezime": "Ivanovic",
+  "pol": "M",
+  "adresa": "Nis, Cara Dusana 88",
+  "kontakt_telefon": "0607654321",
+  "mejl": "ivan.ivanovic@gmail.com",
+  "profilna_slika": "1759769356103.jpg",
+  "broj_kreditne_kartice": "5124007200008765",
+  "status": "aktivan",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68e3f9dfe0bdcae31bf1a4f2"
+  },
+  "korisnicko_ime": "jovan",
+  "lozinka": "$2b$10$blkx.B5S8y7qRceLPYyuM./A0xXgG/KxPFp59HDHAnO/DYkGGHA8O",
+  "tip": "vlasnik",
+  "ime": "Jovan",
+  "prezime": "Jovanovic",
+  "pol": "M",
+  "adresa": "Beograd, Kralja Petra 12",
+  "kontakt_telefon": "+381601112223",
+  "mejl": "jovan.jovanovic@gmail.com",
+  "profilna_slika": "1759770301830.jpg",
+  "broj_kreditne_kartice": "4539007180001234",
+  "status": "aktivan",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68e3f9e0e0bdcae31bf1a4fb"
+  },
+  "korisnicko_ime": "stefan",
+  "lozinka": "$2b$10$C/6jXXgSLUqvKfFWZ1xmS.D6duyFyQVnvGacgOqCQ4QI38zHlVBQi",
+  "tip": "vlasnik",
+  "ime": "Stefan",
+  "prezime": "Stefanovic",
+  "pol": "M",
+  "adresa": "Novi Sad, Njegoseva 45",
+  "kontakt_telefon": "0631234567",
+  "mejl": "stefan.stefanovic@gmail.com",
+  "profilna_slika": "1759770582085.jpg",
+  "broj_kreditne_kartice": "300007190005678",
+  "status": "aktivan",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68e3f9e2e0bdcae31bf1a504"
+  },
+  "korisnicko_ime": "jana",
+  "lozinka": "$2b$10$m8BSQMuZRJKeyUt0xubMnu73.hnWRRMWhoYvtICQCuATtFPrlY6SO",
+  "tip": "turista",
+  "ime": "Jana",
+  "prezime": "Janic",
+  "pol": "Z",
+  "adresa": "Kragujevac, Vojvode Stepe 200",
+  "kontakt_telefon": "0641234321",
+  "mejl": "jana.janic@gmail.com",
+  "profilna_slika": "1759770712563.jpg",
+  "broj_kreditne_kartice": "5524007210004321",
+  "status": "aktivan",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68e3f9ebe0bdcae31bf1a50d"
+  },
+  "korisnicko_ime": "tina",
+  "lozinka": "$2b$10$XSfsfok4u4htg6VDguNFNOtgjIgq9zmR2nK67hOQwBpYIe01ojx82",
+  "tip": "vlasnik",
+  "ime": "Tina",
+  "prezime": "Tinic",
+  "pol": "Z",
+  "adresa": "Beograd, Kosovska 18",
+  "kontakt_telefon": "0652222333",
+  "mejl": "tina.tinic@gmail.com",
+  "profilna_slika": "1759771079794.jpg",
+  "broj_kreditne_kartice": "300111112222333",
+  "status": "aktivan",
+  "__v": 0
+}]
